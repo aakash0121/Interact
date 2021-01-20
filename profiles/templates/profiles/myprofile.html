@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+my profile
+{% endblock title %}
+
+
+{% block content %}
+<h1> My profile:{{profile}} </h1>
+<hr>
+<img src={{profile.avatar.url}}>
+<br>
+<h1> {{profile.first_name}} </h1>
+<hr>
+<h1>{{profile.last_name}}</h1>
+{% endblock content %}
+    
