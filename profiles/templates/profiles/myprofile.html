@@ -6,12 +6,9 @@ my profile
 
 
 {% block content %}
-<h1> My profile:{{profile}} </h1>
-<hr>
-<img src={{profile.avatar.url}}>
-<br>
-<h1> {{profile.first_name}} </h1>
-<hr>
-<h1>{{profile.last_name}}</h1>
+<form action="" method="POST" class="ui form" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit" class="ui positive button"> Update </button>
+</form>
 {% endblock content %}
-    
