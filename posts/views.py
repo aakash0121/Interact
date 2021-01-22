@@ -1,14 +1,26 @@
 from django.shortcuts import render, redirect
 from .models import Post, Like
 from profiles.models import Profile
+from .forms import PostModelForm, CommentModelForm
 
 def post_comment_create_and_list_view(request):
     qs = Post.objects.all()
+    p_form = PostModelForm(request.POST or None, request.FILES or None)
+    c_form = CommentModelForm(request.POST or None)
+
     profile = Profile.objects.get(user=request.user)
+
+    if p_form.is_valid():
+        instance = p_form.save(commit=False)
+        instance_author = profile
+        instance.save()
+        p_form = PostModelForm()
 
     context = {
         'qs': qs,
         'profile': profile,
+        'p_form': p_form,
+        'c_form': c_form,
     }
 
     return render(request, 'posts/main.html', context)
