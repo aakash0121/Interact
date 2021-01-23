@@ -37,7 +37,7 @@ class Comment(models.Model):
 
 LIKE_CHOICES = (
     ('Like', 'Like'),
-    ('Unlike', 'Unlike'),
+    ('Unlike', 'Unlike'), 
 )
 
 

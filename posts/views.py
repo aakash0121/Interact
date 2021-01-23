@@ -12,9 +12,12 @@ def post_comment_create_and_list_view(request):
 
     if p_form.is_valid():
         instance = p_form.save(commit=False)
-        instance_author = profile
+        instance.author = profile
         instance.save()
         p_form = PostModelForm()
+
+    # if c_form.is_valid():
+        
 
     context = {
         'qs': qs,

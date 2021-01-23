@@ -39,7 +39,7 @@ posts
         <div class="five wide column">
             <form action="" method="POST" class="ui form" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{p_form}}
+                {{ p_form }}
                 <button type="submit" class="ui button positive">Send Post</button>
             </form>
         </div>
